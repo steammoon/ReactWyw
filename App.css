@@ -1,0 +1,91 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+#Homemenu{
+  background-color: black;
+  color: white;
+  height: 50px;
+  overflow: hidden;
+}
+
+
+.homemenuul{
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+}
+
+.homemenuul:hover{
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+}
+
+.homemenu-logo{
+  margin-top: 7px;
+  margin-left: 10px;
+  width: 40px;
+  height: 35px;
+}
+
+.ico{
+  width: 35px;
+  height: 35px;
+}
+
+.btn-default1{
+  float: right;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  font-size: 13px;
+  color:white;
+  overflow: hidden;
+}
+
+.btn-default1:hover{
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+}
+
+.caret{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid\9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
