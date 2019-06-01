@@ -25,11 +25,10 @@ export default class Homemenu extends Component {
                             <div className="col-md-1"></div>
                             <div className="col-md-1"></div>
                             <div className="col-md-1"></div>
-                            <div className="col-md-1"></div>
-                            <div className="col-md-1 homemenuul">
-                                <button className="btn btn-default1 btn-block" type="button">
-                                    <img className="ico" src={headimg}></img>huangw 
-                                    <span class="caret"></span>
+                            <div className="col-md-2">
+                                <button className="btn btn-default1" type="button">
+                                    <img className="ico" src={headimg}></img> huangw 
+                                    <span className="caret"></span>
                                 </button>
                             </div>
                         </div>
