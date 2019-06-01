@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logonthq from '../../img/logo-new.png';
 import headimg from '../../img/github-fill-blue.png';
 
+//home导航条
 export default class Homemenu extends Component {
     constructor(props){
         super(props);
