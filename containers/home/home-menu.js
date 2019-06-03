@@ -18,9 +18,9 @@ export default class Homemenu extends Component {
                         <div className="row">
                             <div className="col-md-1"><img className="homemenu-logo" src={logonthq} /></div>
                             <div className="col-md-1 homemenuul">业务</div>
+                            <div className="col-md-1 homemenuul">文库</div>
                             <div className="col-md-1 homemenuul">报表</div>
-                            <div className="col-md-1 homemenuul">娱乐</div>
-                            <div className="col-md-1"></div>
+                            <div className="col-md-1 homemenuul">论坛</div>
                             <div className="col-md-1"></div>
                             <div className="col-md-1"></div>
                             <div className="col-md-1"></div>
