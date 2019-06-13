@@ -24,7 +24,7 @@ class LogoGather extends Component {
 
   static defaultProps = {
     image: 'https://zos.alipayobjects.com/rmsportal/gsRUrUdxeGNDVfO.svg',
-    w: 1200,
+    w: 600,
     h: 300,
     pixSize: 10,
     pointSizeMin: 10,

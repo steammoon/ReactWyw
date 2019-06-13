@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 //import HomeListChird from './home-list-chird';
 import PropTypes from 'prop-types';
-import QueueAnim from 'rc-queue-anim'
+import QueueAnim from 'rc-queue-anim';
+import {Link} from 'react-router-dom';
 
 //home导航条
 class HomeList extends Component {
@@ -12,24 +13,124 @@ class HomeList extends Component {
             openlist: props.openlist,
             btncode: props.btncode,
             locked: props.locked,
+            intcode : 0,
+            intlink :"TrainContext",
             HomeListCmp: "",
             listItem: [{
                 code: "btn1",
-                value: ["", "发任务", "接任务", "做计划", "奖励"]
+                msg : [{
+                    uid : "",
+                    link: "",
+                    value : ""
+                },
+                {
+                    uid : "btn1-1",
+                    link: "",
+                    value : "定制"
+                },{
+                    uid : "btn1-2",
+                    link: "TrainContext",
+                    value : "学习"
+                },{
+                    uid : "btn1-3",
+                    link: "",
+                    value : "考核"
+                },{
+                    uid : "btn1-4",
+                    link: "",
+                    value : "历史"
+                }]
             },
             {
                 code: "btn2",
-                value: ["", "定制", "学习", "考核", "历史"]
+                msg : [{
+                    uid : "",
+                    link: "",
+                    value : ""
+                },
+                {
+                    uid : "btn2-1",
+                    link: "",
+                    value : "发布"
+                },{
+                    uid : "btn2-2",
+                    link: "DetailSwitchDemo",
+                    value : "领取"
+                },{
+                    uid : "btn2-3",
+                    link: "",
+                    value : "结算"
+                }]
             },
             {
                 code: "btn3",
-                value: ["", "客户", "运力", "交易", "驾驶舱"]
+                msg : [{
+                    uid : "",
+                    link: "",
+                    value : ""
+                },
+                {
+                    uid : "btn3-1",
+                    link: "",
+                    value : "分类"
+                },{
+                    uid : "btn3-2",
+                    link: "",
+                    value : "使用记录"
+                }]
             },
             {
                 code: "btn4",
-                value: ["", "发帖", "板块", "文章", "留言"]
+                msg : [{
+                    uid : "",
+                    link: "",
+                    value : ""
+                },
+                {
+                    uid : "btn4-1",
+                    link: "",
+                    value : "全部"
+                },{
+                    uid : "btn4-2",
+                    link: "",
+                    value : "未购买"
+                },{
+                    uid : "btn4-3",
+                    link: "",
+                    value : "已购买"
+                },{
+                    uid : "btn4-4",
+                    link: "",
+                    value : "购买记录"
+                }]
+            },
+            {
+                code: "btn5",
+                msg : [{
+                    uid : "",
+                    link: "",
+                    value : ""
+                },
+                {
+                    uid : "btn5-1",
+                    link: "",
+                    value : "客户图谱"
+                },{
+                    uid : "btn5-2",
+                    link: "",
+                    value : "运力地图"
+                },{
+                    uid : "btn5-3",
+                    link: "",
+                    value : "交易曲线"
+                },{
+                    uid : "btn5-4",
+                    link: "",
+                    value : "决策驾驶舱"
+                }]
             },
             ],
+            curcode:"",
             currentlist: []
         }
     }
@@ -38,15 +139,18 @@ class HomeList extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.openlist) {
             let currentItem = [];
+            let code1 ;
             this.state.listItem.map((value,i) => {
                 if (value.code === nextProps.btncode) {
-                    currentItem = value.value;
+                    currentItem = value.msg;
+                    code1 = i-1;
                 }
                 return i.id
             });
             this.setState({
                 show: true,
-                currentlist: currentItem
+                currentlist: currentItem,
+                intcode : code1
             });
         }
         else {
@@ -56,6 +160,10 @@ class HomeList extends Component {
         }
     }
 
+    listOpen(event){
+        //alert(this.state.listItem[this.state.intcode].link[2]);
+        //alert(event.target.id);
+    }
 
     render() {
         return (
@@ -66,7 +174,7 @@ class HomeList extends Component {
                     ease={['easeOutQuart', 'easeInOutQuart']}>
                     {this.state.show ? [
                         <div key='mobile-menu' id="mobile-menu" className="mobile-nav visible-xs visible-sm" >
-                            <ul>{this.state.currentlist.map((value, i) => <li key={i}><a href="#">{value}</a></li> )}</ul>
+                            <ul>{this.state.currentlist.map((value, i) => <li key={i}><Link to={"/Home/"+value.link} id={this.state.curcode+"-"+i} onClick={(event) => {this.listOpen(event)}}>{value.value}</Link></li> )}</ul>
                         </div>
                     ] : null}
                 </QueueAnim>

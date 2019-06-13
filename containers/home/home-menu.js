@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import HomeMenuBtn from './home-menu-btn'
-import HomeMenuConf from './home-menu-config'
+import HomeMenuBtn from './home-menu-btn';
+import HomeMenuConf from './home-menu-config';
+import {Link} from 'react-router-dom';
 
 
 //home导航条
@@ -13,19 +14,23 @@ export default class Homemenu extends Component {
             menumap: [
                 {
                     code: "btn1",
-                    value: "业务"
-                },
-                {
-                    code: "btn2",
                     value: "培训"
                 },
                 {
+                    code: "btn2",
+                    value: "任务"
+                },
+                {
                     code: "btn3",
-                    value: "报表"
+                    value: "应用"
                 },
                 {
                     code: "btn4",
-                    value: "论坛"
+                    value: "市场"
+                },
+                {
+                    code: "btn5",
+                    value: "数据"
                 }
             ],
             menumapnull: [
@@ -44,10 +49,6 @@ export default class Homemenu extends Component {
                 {
                     code: "btnnull4",
                     value: ""
-                },
-                {
-                    code: "btnnull5",
-                    value: ""
                 }
             ]
         }
@@ -65,13 +66,10 @@ export default class Homemenu extends Component {
         });
     }
 
-
-
-
     render() {
         return (
             <div className="container-fluid" id="Homemenu">
-                <div id="img-logo" alt="nthq"></div>
+                <Link to="/"><div id="img-logo" alt="nthq"></div></Link>
                 <div className="row">
                     <div className="container">
                         <div className="row">
