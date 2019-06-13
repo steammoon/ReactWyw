@@ -1,0 +1,50 @@
+.upload-body{
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+.ant-upload-drag-container{
+    text-align: center;
+    margin: 0  auto;
+    width: 400px;
+    height: 280px;
+    border-style: dashed;
+} 
+
+.ant-upload-drag-container:hover{
+    cursor: pointer;
+}
+
+.ant-upload-list-text{
+    text-align: left;
+    margin: 0  auto;
+    margin-top: 20px;
+    width: 400px;
+    height: 50px;
+    background-color: white;
+}
+
+.anticon-upload:hover{
+    cursor: pointer;
+}
+
+.anticon-upload>svg{
+    width: 10em;
+    height: 10em;
+}
+
+.upload-list-inline .ant-upload-list-item {
+    float: left;
+    width: 200px;
+    margin-right: 8px;
+  }
+  .upload-list-inline .ant-upload-animate-enter {
+    animation-name: uploadAnimateInlineIn;
+  }
+  .upload-list-inline .ant-upload-animate-leave {
+    animation-name: uploadAnimateInlineOut;
+  }

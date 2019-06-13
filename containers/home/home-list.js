@@ -25,7 +25,7 @@ class HomeList extends Component {
                 },
                 {
                     uid : "btn1-1",
-                    link: "",
+                    link: "TrainUpload",
                     value : "定制"
                 },{
                     uid : "btn1-2",
@@ -37,7 +37,7 @@ class HomeList extends Component {
                     value : "考核"
                 },{
                     uid : "btn1-4",
-                    link: "",
+                    link: "TrainHistory",
                     value : "历史"
                 }]
             },
@@ -183,16 +183,12 @@ class HomeList extends Component {
     }
 }
 
-
-
-// 检查对象类型！！
 HomeList.propTypes = {
     openlist: PropTypes.bool,
     btncode: PropTypes.string,
     locked: PropTypes.bool
 };
 
-//默认值设置
 HomeList.defaultProps = {
     openlist: false,
     btncode: null,
