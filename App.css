@@ -1,3 +1,8 @@
+@import '~antd/dist/antd.css';
+.App {
+  text-align: center;
+}
+
 @media screen and (max-width: 2800px){
   .carousel-demo-wrapper {
     height: 660px;
@@ -95,6 +100,7 @@ body{
   }
   
   .logo-gather-demo-wrapper {
+    width: 100%;
     position: relative;
     background: rgb(220, 220, 220);
     overflow: hidden;
@@ -181,6 +187,7 @@ body{
   }
 
 #Homemenu {
+    margin: 0;
     background-color: black;
     color: white;
     height: 60px;
@@ -298,6 +305,9 @@ body{
     background-color:black;
     z-index: 10;
 }
+#mobile-menu> {
+  
+}
 
 a:hover,
 a:focus {
@@ -305,7 +315,7 @@ a:focus {
 }
 
 .mobile-nav ul li a {
-    color:white;
+    
     display: block;
     padding: 1em 5%;
     border-bottom: 0.1px solid white;
@@ -315,10 +325,7 @@ a:focus {
     cursor: pointer;
 }
 
-.mobile-nav ul li a:hover {
-    background-color: white;
-    color: black;
-}
+
 
 .show-nav {
     transform: translateX(0);

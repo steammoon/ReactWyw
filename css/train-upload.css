@@ -1,18 +1,36 @@
-.upload-body{
-    padding: 30px;
+.upload-body-1{
+    display: inline;
+    padding-top: 30px;
+    text-align: center;
+    top: 0px;
+    height: 25%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+.upload-body-2{
+    display: inline;
+    padding-top: 30px;
     text-align: center;
     width: 100%;
-    height: 100%;
+    height: 75%;
+    bottom: 0px;
     position: absolute;
 }
+
+.ant-upload.ant-upload-drag{
+    margin-left: 100px ;
+    width: 400px;
+    height: 220px;
+}
+
 
 
 .ant-upload-drag-container{
     text-align: center;
     margin: 0  auto;
-    width: 400px;
-    height: 280px;
-    border-style: dashed;
+    width: 200px;
+    height: 180px;
 } 
 
 .ant-upload-drag-container:hover{
@@ -23,9 +41,13 @@
     text-align: left;
     margin: 0  auto;
     margin-top: 20px;
-    width: 400px;
-    height: 50px;
+    width: 500px;
+    height: 200px;
     background-color: white;
+    position: absolute;
+    display: inline;
+    top: 20px;
+    left: 600px;
 }
 
 .anticon-upload:hover{
@@ -33,8 +55,8 @@
 }
 
 .anticon-upload>svg{
-    width: 10em;
-    height: 10em;
+    width: 2em;
+    height: 2em;
 }
 
 .upload-list-inline .ant-upload-list-item {
@@ -47,4 +69,16 @@
   }
   .upload-list-inline .ant-upload-animate-leave {
     animation-name: uploadAnimateInlineOut;
+  }
+
+
+  .upload-table{
+      width: 80%;
+      margin-top: 30px;
+      border-collapse:separate; 
+      border-spacing:10px;
+  }
+
+  .upload-table>tr{
+    
   }

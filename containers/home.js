@@ -4,15 +4,29 @@ import HomeMenu from './home/home-menu';
 import HomeList from './home/home-list';
 import Context from './context/context';
 import Carousel from './context/Carousel';
-import PicDetailsDemo from './context/btn1/train-context';
-import DetailSwitchDemo from './context/btn2/task-get';
+import TrainContext from './context/btn1/train-context';
 import TrainUpload from './context/btn1/train-upload';
 import TrainHistory from './context/btn1/train-history';
+import TrainExam from './context/btn1/train-exam';
+import TaskPublish from './context/btn2/task-publish';
+import TaskGet from './context/btn2/task-get';
+import TaskSettle from './context/btn2/task-settle';
+import AppClass from './context/btn3/app-class';
+import AppRecord from './context/btn3/app-record';
+import Market from './context/btn4/market';
+import MarketUnPurchased from './context/btn4/market-unpurchase';
+import MarketPurchased from './context/btn4/market-purchased';
+import MarketRecord from './context/btn4/market-record';
+import Customer from './context/btn5/customer';
+import Transport from './context/btn5/transport';
+import Business from './context/btn5/business';
+import Cockpit from './context/btn5/cockpit';
 import { Layout } from 'antd';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Blank from './context/blank'
+import Blank from './context/blank';
+import '../css/home.css'
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 class Home extends Component {
     constructor(props) {
@@ -20,7 +34,9 @@ class Home extends Component {
         this.state = {
             openlist: false,
             btncode: null,
-            locked: false
+            uid:null,
+            locked: false,
+            autolocked: false
         }
     }
 
@@ -32,7 +48,56 @@ class Home extends Component {
         });
     };
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidMount(nextProps){
+        let routepath = this.props.location.pathname;
+        let pathlen = routepath.length;
+        let routepath1 = routepath.substring(6,10);
+        let routepath2 = routepath.substring(6,12);
+        let param1 = false;
+        let param2 = null;
+        let param3 = null;
+        let param4 = false;
+        let param5 = false;
+        if(pathlen > 13){
+            param1 = true;
+            param2 = routepath1;
+            param3 = routepath2;
+            param4 = true;
+            param5 = true;
+        }
+        this.setState({
+            openlist: param1,
+            btncode: param2,
+            uid : param3,
+            locked: param4,
+            autolocked: param5
+        })
+    }
+
+    componentWillReceiveProps(nextProps){
+        let routepath = nextProps.location.pathname;
+        let pathlen = routepath.length;
+        let routepath1 = routepath.substring(6,10);
+        let routepath2 = routepath.substring(6,12);
+        let param1 = false;
+        let param2 = null;
+        let param3 = null;
+        let param4 = false;
+        let param5 = false;
+        if(pathlen > 13){
+            param1 = true;
+            param2 = routepath1;
+            param3 = routepath2;
+            param4 = true;
+            param5 = true;
+        }
+        this.setState({
+            openlist: param1,
+            btncode: param2,
+            uid : param3,
+            locked: param4,
+            autolocked: param5
+        })
     }
 
     render() {
@@ -45,20 +110,38 @@ class Home extends Component {
                         />
                     </Header>
                     <Layout>
-                        <Sider>
+                        <Content>
                             <HomeList
                                 openlist={this.state.openlist}
                                 btncode={this.state.btncode}
+                                uid={this.state.uid}
                                 locked={this.state.locked}
+                                autolocked={this.state.autolocked}
                             />
-                        </Sider>
-                        <Content>
                             <Switch>
                                 <Route exact path="/" component={Carousel} />
-                                <Route path="/Home/TrainContext" component={PicDetailsDemo} />
-                                <Route path="/Home/DetailSwitchDemo" component={DetailSwitchDemo} />
-                                <Route path="/Home/TrainUpload" component={TrainUpload} />
-                                <Route path="/Home/TrainHistory" component={TrainHistory} />
+                                {/*btn1 - 培训*/}
+                                <Route path="/Home/btn1/1/TrainUpload" component={TrainUpload} /> 
+                                <Route path="/Home/btn1/2/TrainContext" component={TrainContext} />
+                                <Route path="/Home/btn1/3/TrainExam" component={TrainExam} />
+                                <Route path="/Home/btn1/4/TrainHistory" component={TrainHistory} />
+                                {/*btn2 - 任务*/}
+                                <Route path="/Home/btn2/1/TaskPublish" component={TaskPublish} />
+                                <Route path="/Home/btn2/2/TaskGet" component={TaskGet} />
+                                <Route path="/Home/btn2/3/TaskSettle" component={TaskSettle} />
+                                {/*btn3 - 应用*/}
+                                <Route path="/Home/btn3/1/AppClass" component={AppClass} />
+                                <Route path="/Home/btn3/2/AppRecord" component={AppRecord} />
+                                {/*btn4 - 市场*/}
+                                <Route path="/Home/btn4/1/Market" component={Market} />
+                                <Route path="/Home/btn4/2/MarketUnPurchased" component={MarketUnPurchased} />
+                                <Route path="/Home/btn4/3/MarketPurchased" component={MarketPurchased} />
+                                <Route path="/Home/btn4/4/MarketRecord" component={MarketRecord} />
+                                {/*btn5 - 数据*/}
+                                <Route path="/Home/btn5/1/Customer" component={Customer} />
+                                <Route path="/Home/btn5/2/Transport" component={Transport} />
+                                <Route path="/Home/btn5/3/Business" component={Business} />
+                                <Route path="/Home/btn5/4/Cockpit" component={Cockpit} />
                                 <Route render={() => <Redirect to="/" />} />
                             </Switch>
                         </Content>
@@ -66,10 +149,28 @@ class Home extends Component {
                     <Footer>
                         <Switch>
                             <Route exact path="/" component={Context} />
-                            <Route path="/Home/TrainContext" component={Blank} />
-                            <Route path="/Home/DetailSwitchDemo" component={Blank} />
-                            <Route path="/Home/TrainUpload" component={Blank} />
-                            <Route path="/Home/TrainHistory" component={Blank} />
+                            {/*btn1 - 培训*/}
+                            <Route path="/Home/btn1/1/TrainUpload" component={Blank} />
+                            <Route path="/Home/btn1/2/TrainContext" component={Blank} />
+                            <Route path="/Home/btn1/3/TrainExam" component={Blank} />
+                            <Route path="/Home/btn1/4/TrainHistory" component={Blank} />
+                            {/*btn2 - 任务*/}
+                            <Route path="/Home/btn2/1/TaskPublish" component={Blank} />
+                            <Route path="/Home/btn2/2/TaskGet" component={Blank} />
+                            <Route path="/Home/btn2/3/TaskSettle" component={Blank} />
+                            {/*btn3 - 应用*/}
+                            <Route path="/Home/btn3/1/AppClass" component={Blank} />
+                            <Route path="/Home/btn3/2/AppRecord" component={Blank} />
+                            {/*btn4 - 市场*/}
+                            <Route path="/Home/btn4/1/Market" component={Blank} />
+                            <Route path="/Home/btn4/2/MarketUnPurchased" component={Blank} />
+                            <Route path="/Home/btn4/3/MarketPurchased" component={Blank} />
+                            <Route path="/Home/btn4/4/MarketRecord" component={Blank} />
+                            {/*btn5 - 数据*/}
+                            <Route path="/Home/btn5/1/Customer" component={Blank} />
+                            <Route path="/Home/btn5/2/Transport" component={Blank} />
+                            <Route path="/Home/btn5/3/Business" component={Blank} />
+                            <Route path="/Home/btn5/4/Cockpit" component={Blank} />
                             <Route render={() => <Redirect to="/" />} />
                         </Switch>
                     </Footer>

@@ -1,8 +1,6 @@
 import React from 'react';
-import '../../../css/task-get.css'
 
-
-class TaskGet extends React.Component {
+class TaskPublish extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,10 +9,10 @@ class TaskGet extends React.Component {
 
     render() {
         return (
-            <div>TTTTTTTTTTTTTTT
+            <div>
             </div>
         )
     }
 }
 
-export default TaskGet;
+export default TaskPublish;

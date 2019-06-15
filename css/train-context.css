@@ -1,6 +1,6 @@
 @media screen and (max-width: 2800px){
     .pic-details-demo {
-        margin: 130px auto;
+        margin: 70px auto;
         min-height: 680px;
         height: 70%;
     }
@@ -8,7 +8,7 @@
   
   @media screen and (max-width: 1800px){
     .pic-details-demo {
-        margin: 90px auto;
+        margin: 30px auto;
         min-height: 450px;
         height: 70%;
     }
