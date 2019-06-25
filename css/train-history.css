@@ -1,13 +1,19 @@
+.slick-initialized{
+  margin: 30px auto;
+  width: 1000px;
+}
 .ant-carousel .slick-slide {
+    margin-top: 50px;
     text-align: center;
-    height: 500px;
-    line-height: 500px;
+    width: 400px;
+    height: 400px;
+    line-height: 400px;
     background: #364d79;
     overflow: hidden;
   }
 
   .slick-current{
-    height: 80%;
+    
   }
   
   .ant-carousel .slick-slide h3 {
@@ -16,5 +22,5 @@
 
 
   .tab-cute{
-    height: 80%;
+    
   }

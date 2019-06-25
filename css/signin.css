@@ -1,0 +1,190 @@
+.sigin-body{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    background: #35aef8;
+    background: -webkit-linear-gradient(-45deg, #35aef8 0%, #7681ff 76%, #7681ff 76%);
+    background: -webkit-linear-gradient(315deg, #35aef8 0%, #7681ff 76%, #7681ff 76%);
+    background: linear-gradient(135deg, #35aef8 0%, #7681ff 76%, #7681ff 76%);
+}
+
+#sigin-window{
+    margin: auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    width: 400px;
+    height: 500px;
+    background-color:rgba(255, 255, 255, 0.0);
+    position: fixed;
+    z-index: 2;
+}
+
+#wx_reg{
+    z-index: 2;
+}
+
+#wx_reg>iframe{
+    top:40px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+
+.impowerBox .title{
+    color: red !important;
+}
+
+@import '~antd/dist/antd.css';
+.App {
+  text-align: center;
+}
+
+@media screen and (max-width: 2800px){
+  .logo-gather-demo-wrapper1 .right-side {
+    height:1200px;
+  }
+
+  .logo-gather-demo-wrapper1{
+    height: 950px;
+  }
+}
+
+@media screen and (max-width: 1800px){
+  .logo-gather-demo-wrapper1 .right-side {
+    height:980px;
+  }
+  .logo-gather-demo-wrapper1{
+    height: 700px;
+  }
+}
+
+.logo-gather-demo-edit-wrapper1 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #f1f1f1;
+    padding: 0 5%;
+    line-height: 45px;
+  }
+  
+  .logo-gather-demo-edit-wrapper1 ul {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .logo-gather-demo-edit-wrapper1 ul li:first-child {
+    margin-left: 0;
+  }
+  
+  .logo-gather-demo-edit-wrapper1 ul li {
+    float: left;
+    vertical-align: middle;
+    margin: 0 5px;
+  }
+  
+  .logo-gather-demo-wrapper1 {
+    position: relative;
+    background: #35aef8;
+    background: -webkit-linear-gradient(-45deg, #35aef8 0%, #7681ff 76%, #7681ff 76%);
+    background: -webkit-linear-gradient(315deg, #35aef8 0%, #7681ff 76%, #7681ff 76%);
+    background: linear-gradient(135deg, #35aef8 0%, #7681ff 76%, #7681ff 76%);
+    overflow: hidden;
+  }
+  
+  .logo-gather-demo-wrapper1 .point-wrapper {
+    position: absolute;
+  }
+  
+  .logo-gather-demo-wrapper1 .point {
+    border-radius: 100%;
+  }
+  
+  .logo-gather-demo-wrapper1 .right-side {
+    width:  3800px;
+    height: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+  
+  .logo-gather-demo-wrapper1 .right-side * {
+    pointer-events: none;
+  }
+  
+  @media screen and (max-width: 414px) {
+    .exhibition-details-demo {
+      overflow: hidden;
+    }
+  
+    .logo-gather-demo-edit-wrapper1 {
+      transform: translateY(100%);
+      transition: transform .45s ease-in-out;
+    }
+  
+    .logo-gather-demo-edit-wrapper1.open{
+      transform: translateY(0);
+    }
+  
+    .logo-gather-demo-edit-wrapper1 .anticon-down{
+      transition: transform .45s ease-in-out;
+    }
+  
+    .logo-gather-demo-edit-wrapper1.open .anticon-down{
+      transform: rotate(180deg);
+    }
+  
+    .logo-gather-demo-edit-wrapper1 > div {
+      width: 10%;
+      line-height: 24px !important;
+      margin-bottom: 5px;
+    }
+  
+    .exhibition-details-demo1 .edit-button{
+      position: absolute;
+      top: -20px;
+      width: 30px;
+      height: 20px;
+      border-radius: 30px 30px 0 0;
+      background: #f1f1f1;
+      text-align: center;
+      left: 0;
+      right: 0;
+      margin: auto;
+      box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.15);
+    }
+  
+    .logo-gather-demo-edit-wrapper1 ul {
+      margin: 5px auto;
+    }
+  
+    .phone-float-none {
+      clear: both;
+      margin-left: 0 !important;
+    }
+  
+    .none {
+      display: none;
+    }
+  
+  }
+
+
+  .sigininaccount{
+      top:100px;
+      margin: 0 auto;
+      width: 100%;
+      position: fixed;
+      height: 300px;
+      z-index: 3;
+      display: inline-block;
+  }
+
+  

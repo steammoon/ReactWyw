@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Carousel } from 'antd';
+import { Icon } from 'antd';
 import '../../../css/train-history.css';
 
 function onChange(a, b, c) {
@@ -18,16 +19,18 @@ class TrainHistory extends Component {
             <div className="context-body">
                 <Carousel afterChange={onChange}>
                     <div className="tab-cute">
-                        <h3>1</h3>
+                        <div>
+                            < Icon type="chrome"/>
+                        </div>
                     </div>
                     <div className="tab-cute">
-                        <h3>2</h3>
+                        <div>2</div>
                     </div>
                     <div className="tab-cute">
-                        <h3>3</h3>
+                        <div>3</div>
                     </div>
                     <div className="tab-cute">
-                        <h3>4</h3>
+                        <div>4</div>
                     </div>
                 </Carousel>
             </div>

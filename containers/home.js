@@ -32,6 +32,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            name : "huangw",
             openlist: false,
             btncode: null,
             uid:null,
@@ -100,13 +101,25 @@ class Home extends Component {
         })
     }
 
+    componentWillMount(){
+        if(typeof this.props.location.state !== "undefined"){
+            this.setState({
+                name : this.props.location.state.name
+            })
+        }
+    }
+
     render() {
+        if(typeof this.state.name === "undefined" || this.state.name === null){
+            return <Redirect push to="/" />;
+        }
         return (
             <div id="Home">
                 <Layout>
                     <Header>
                         <HomeMenu
-                            callbackMenu={this.menulistOpen}
+                            callbackMenu={this.menulistOpen} 
+                            name={this.state.name} 
                         />
                     </Header>
                     <Layout>
@@ -119,7 +132,7 @@ class Home extends Component {
                                 autolocked={this.state.autolocked}
                             />
                             <Switch>
-                                <Route exact path="/" component={Carousel} />
+                                <Route exact path="/Home" component={Carousel} />
                                 {/*btn1 - 培训*/}
                                 <Route path="/Home/btn1/1/TrainUpload" component={TrainUpload} /> 
                                 <Route path="/Home/btn1/2/TrainContext" component={TrainContext} />
@@ -142,13 +155,13 @@ class Home extends Component {
                                 <Route path="/Home/btn5/2/Transport" component={Transport} />
                                 <Route path="/Home/btn5/3/Business" component={Business} />
                                 <Route path="/Home/btn5/4/Cockpit" component={Cockpit} />
-                                <Route render={() => <Redirect to="/" />} />
+                                <Route render={() => <Redirect to="/Home" />} />
                             </Switch>
                         </Content>
                     </Layout>
                     <Footer>
                         <Switch>
-                            <Route exact path="/" component={Context} />
+                            <Route exact path="/Home" component={Context} />
                             {/*btn1 - 培训*/}
                             <Route path="/Home/btn1/1/TrainUpload" component={Blank} />
                             <Route path="/Home/btn1/2/TrainContext" component={Blank} />
@@ -171,7 +184,7 @@ class Home extends Component {
                             <Route path="/Home/btn5/2/Transport" component={Blank} />
                             <Route path="/Home/btn5/3/Business" component={Blank} />
                             <Route path="/Home/btn5/4/Cockpit" component={Blank} />
-                            <Route render={() => <Redirect to="/" />} />
+                            <Route render={() => <Redirect to="/Home" />} />
                         </Switch>
                     </Footer>
                 </Layout>

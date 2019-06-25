@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ListBtnJson from '../../hw-list-btn.json';
 
 class HomeMenuBtn extends Component {
     constructor(props) {
@@ -11,14 +12,7 @@ class HomeMenuBtn extends Component {
             btnstyle: {
                 color: 'white',
                 backgroundColor: 'black'
-            },
-            defaultCode:[
-            {code:"btn1",link:"TrainUpload"},
-            {code:"btn2",link:"TaskPublish"},
-            {code:"btn3",link:"AppClass"},
-            {code:"btn4",link:"Market"},
-            {code:"btn5",link:"Customer"}
-        ]
+            }
         }
     }
 
@@ -117,19 +111,26 @@ class HomeMenuBtn extends Component {
 
     render() {
         let defaultlink = "";
-        this.state.defaultCode.map((value,i) => {
-            if(value.code === this.props.code){
+        ListBtnJson.defaultCode.map((value, i) => {
+            if (value.code === this.props.code) {
                 defaultlink = value.link;
             }
-        } )
+            return i.id;
+        })
 
         return (
-            <div style={this.state.btnstyle} className="col-md-1 homemenuul" id={this.props.code} onMouseEnter={(event) => { this.btnenter(event) }} onMouseLeave={(event) => { this.btnleave(event) }} onClick={(event) => { this.menulistOpen(event) }}>
+            <div
+                style={this.state.btnstyle}
+                className="col-md-1 homemenuul"
+                id={this.props.code}
+                onMouseEnter={(event) => { this.btnenter(event) }}
+                onMouseLeave={(event) => { this.btnleave(event) }}
+                onClick={(event) => { this.menulistOpen(event) }}>
                 <Link
                     style={this.state.btnstyle}
-                    to={"/Home/"+this.props.code+"/1/"+defaultlink}
+                    to={"/Home/" + this.props.code + "/1/" + defaultlink}
                 >
-                {this.props.value}
+                    {this.props.value}
                 </Link>
             </div>
         );
