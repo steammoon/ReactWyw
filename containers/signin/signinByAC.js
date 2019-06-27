@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 //import $ from 'jquery';
 
 const url = {
-    "GET_DATA": 'HWlogin/psw'
+    "GET_DATA": 'hq/HWlogin/psw'
 }
 
 class SigninByAC extends React.Component {

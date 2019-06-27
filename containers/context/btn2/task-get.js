@@ -1,100 +1,141 @@
 import React from 'react';
 import http from '../../../http';
-import { List, Avatar, Icon } from 'antd';
+import { List, Card, Tag, Icon, Input, Spin, Tooltip, Badge } from 'antd';
+import TaskGetMore from '../btn2/task-get-more';
 import '../../../css/task-get.css';
 
 const url = {
-    "GET_DATA": 'http://localhost:3000/HWTask/list'
+    "GET_DATA": http.grobal + 'HWTask/list',
+    "GET_DATA_BY_CONDITION": http.grobal + 'HWTask/condition'
 }
-
-//const listData = [];
-
-const IconText = ({ type, text }) => (
-    <span>
-        <Icon type={type} style={{ marginRight: 8 }} />
-        {text}
-    </span>
-);
-
 
 class TaskGet extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            listData : []
+            openmore: false,
+            listData: [],
+            curitem: null
         };
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
         //获取列表数据
         const res = await http.post(url.GET_DATA, null);
         const ld = [];
-        res.data.map((item,i) =>{
+        res.data.map((item, i) => {
             ld.push({
-                    href: 'http://ant.design',
-                    title: item.title,
-                    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-                    description:
-                        'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-                    content:
-                        'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-                })
-        
+                title: item.title,
+                color: item.title_color,
+                describe: item.describe,
+                reward: item.reward,
+                status: item.status,
+                createdby: item.createdby,
+                createdon: item.createdon,
+                new:item.new,
+                tag: item.tag
+            })
+            return i.id;
         })
         this.setState({
-            listData : ld
+            listData: ld
         })
     }
 
+    async loadagain(event) {
+        var data = {
+            condition: event.target.value
+        }
+        const res = await http.post(url.GET_DATA_BY_CONDITION, data);
+        const ld = [];
+        res.data.map((item, i) => {
+            ld.push({
+                title: item.title,
+                color: item.title_color,
+                describe: item.describe,
+                reward: item.reward,
+                status: item.status,
+                createdby: item.createdby,
+                createdon: item.createdon,
+                new:item.new,
+                tag: item.tag
+            })
+            return i.id;
+        })
+        this.setState({
+            listData: ld
+        })
+    }
+
+    clickmore(event, item) {
+        this.setState({
+            openmore: true,
+            curitem: item
+        })
+    }
+
+    callbackstate = (data) => {
+        this.setState({
+            openmore: data.openmore
+        })
+    }
 
     render() {
+        if (this.state.listData === null) {
+            return (
+                <Spin />
+            );
+        }
         return (
             <div className="context-body">
-                <div className="context-body-frame">
+                <div className="search-tab">
+                    <Icon
+                        type="search"
+                        style={{ position: 'absolute', top: '20px', left: '60px', height: '40px', width: '40px', color: 'rgb(225,226,227)' }} />
+                    <Input
+                        onChange={(event) => { this.loadagain(event) }}
+                        style={{ position: 'absolute', top: '10px', left: '100px', height: '40px', border: '0', width: '600px', outline: 'medium' }}
+                        placeholder="在任务中搜索" />
+                </div>
+                <TaskGetMore
+                    openmore={this.state.openmore}
+                    curitem={this.state.curitem}
+                    callbackstate={this.callbackstate} />
+                <div className="taskframe">
                     <List
-                        style={{height:'50px'}}
-                        itemLayout="vertical"
-                        size="small"
-                        pagination={{
-                            onChange: page => {
-                                console.log(page);
-                            },
-                            pageSize: 3,
+                        grid={{
+                            gutter: 16,
+                            xs: 1,
+                            sm: 2,
+                            md: 4,
+                            lg: 4,
+                            xl: 4,
+                            xxl: 4,
                         }}
                         dataSource={this.state.listData}
-                        footer={
-                            <div>
-                                <b>任务列表</b>
-                        </div>
-                        }
                         renderItem={item => (
-                            <List.Item
-                                key={item.title}
-                                actions={[
-                                    <IconText type="star-o" text="156" />,
-                                    <IconText type="like-o" text="156" />,
-                                    <IconText type="message" text="2" />,
-                                ]}
-                                extra={
-                                    <img
-                                        width={272}
-                                        alt="logo"
-                                        src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-                                    />
-                                }
-                            >
-                                <List.Item.Meta
-                                    avatar={<Avatar src={item.avatar} />}
-                                    title={<a href={item.href}>{item.title}</a>}
-                                    description={item.description}
-                                />
-                                {item.content}
+                            <List.Item>
+                                <Badge style={{float:"right"}} count={item.new}>
+                                    <Card
+                                        title={item.title}
+                                        headStyle={{ color: item.color, fontWeight: "500", fontFamily: "微软雅黑" }}
+                                        extra={<a onClick={(event) => { this.clickmore(event, item) }} href="#">More</a>}
+                                        style={{ color: item.color, borderRadius: "7px", backgroundColor: "rgb(255,255,255)", boxShadow: "0 5px 10px rgb(200,200,200)" }}>
+                                        {item.tag.map((value, i) =>
+                                            <Tag key={i} color={value.tagcolor}>{value.tagname}</Tag>
+                                        )}
+                                        <Tooltip placement="topLeft" title="积分奖励" arrowPointAtCenter>
+                                            <Tag color="geekblue" style={{ position: "relative", right: "-10px", float: "right" }}> {item.reward} </Tag>
+                                        </Tooltip>
+                                    </Card>
+                                </Badge>
                             </List.Item>
                         )}
                     />
                 </div>
             </div>
         )
+
     }
 }
 

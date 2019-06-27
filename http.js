@@ -1,9 +1,12 @@
 import axios from 'axios';
 import qs from 'qs';
 
+axios.defaults.withCredentials = true;
+
 let http={
     post:"",
-    get:""
+    get:"",
+    grobal:"http://localhost:3000/"
 }
 
 http.post = function (api,data) {

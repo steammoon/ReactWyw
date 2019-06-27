@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import TweenOne from 'rc-tween-one';
 import ticker from 'rc-tween-one/lib/ticker';
+import FooterContext from '././footercontext';
 //import Input from 'antd/lib/input';
 //import Button from 'antd/lib/button';
 //import InputNumber from 'antd/lib/input-number';
@@ -9,7 +10,7 @@ import Icon from 'antd/lib/icon';
 //import { enquireScreen } from 'enquire-js';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import svg from '../../img/svg/time.svg'
+import svg from '../../img/svg/time.svg';
 
 //const RadioGroup = Radio.Group;
 
@@ -277,6 +278,7 @@ class Context extends React.Component {
           <div style={{ lineHeight: '32px' }}>
           </div>
         </div>
+        <FooterContext />
       </div>
     );
   }
