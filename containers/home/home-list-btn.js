@@ -8,8 +8,8 @@ class HomeListBtn extends Component {
             uid : this.props.uid,
             locked:true,
             listbtnstyle: {
-                color: 'white',
-                backgroundColor: 'black'
+                color: 'black'
+                ,backgroundColor: 'white'
             }
         }
     }
@@ -18,8 +18,8 @@ class HomeListBtn extends Component {
         this.setState({
             locked:true,
             listbtnstyle: {
-                color: 'black',
-                backgroundColor: 'white'
+                color: 'rgba(18, 150, 219, 1)'
+                ,backgroundColor: 'rgb(240,240,240)'
             }
         })
         this.props.callbacklist(this.props.uid);
@@ -28,8 +28,8 @@ class HomeListBtn extends Component {
     btnenter(event) {
         this.setState({
             listbtnstyle: {
-                color: 'black',
-                backgroundColor: 'white'
+                color: 'rgba(18, 150, 219, 1)'
+                ,backgroundColor: 'white'
             }
         })
     }
@@ -38,8 +38,8 @@ class HomeListBtn extends Component {
         if (!this.state.locked) {
             this.setState({
                 listbtnstyle: {
-                    color: 'white',
-                    backgroundColor: 'black'
+                    color: 'black'
+                    ,backgroundColor: 'white'
                 }
             })
         }
@@ -49,8 +49,8 @@ class HomeListBtn extends Component {
         if(this.props.uid === this.props.pageuid){
             this.setState({
                 listbtnstyle: {
-                    color: 'black',
-                    backgroundColor: 'white '
+                    color: 'rgba(18, 150, 219, 1)'
+                    ,backgroundColor: 'rgb(240,240,240)'
                 }
             })
         }
@@ -62,8 +62,8 @@ class HomeListBtn extends Component {
             this.setState({
                 locked:false,
                 listbtnstyle: {
-                    color: 'white',
-                    backgroundColor: 'black'
+                    color: 'black'
+                    ,backgroundColor: 'white'
                 }
             })
         }

@@ -85,7 +85,7 @@ class TaskGetMore extends Component {
                         </Button>,
                     ]}
                 >
-                    <p>任务描述：<br></br><pre style={{fontFamily:"微软雅黑",height:"300px"}}>{this.state.describe}</pre></p>
+                    <div>任务描述：<br></br><pre style={{fontFamily:"微软雅黑",height:"300px"}}>{this.state.describe}</pre></div>
                     <p>发布人：{this.state.createdby}</p>
                     <p>发布日期：{this.state.createdon}</p>
                 </Modal>

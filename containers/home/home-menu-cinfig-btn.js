@@ -6,7 +6,7 @@ class HomeMenuConfBtn extends Component {
         super(props);
         this.state = {
             btnstyle: {
-                color: 'white',
+                color: 'black',
                 width: '120px'
             }
 
@@ -16,7 +16,7 @@ class HomeMenuConfBtn extends Component {
     confbtn1(event) {
         this.setState({
             btnstyle: {
-                color: (this.state.btnstyle.color === "white") ? "black" : "white"
+                color: (this.state.btnstyle.color === "black") ? "rgba(18, 150, 219, 1)" : "black"
             }
         })
         if(this.props.code === "cof4"){ 
@@ -28,7 +28,7 @@ class HomeMenuConfBtn extends Component {
     btnenter(event) {
         this.setState({
             btnstyle: {
-                color: "black",
+                color: "rgba(18, 150, 219, 1)",
                 width: '120px'
             }
         })
@@ -37,7 +37,7 @@ class HomeMenuConfBtn extends Component {
     btnleave(event) {
         this.setState({
             btnstyle: {
-                color: "white",
+                color: "black",
                 width: '120px'
             }
         })

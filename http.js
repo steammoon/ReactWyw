@@ -1,12 +1,14 @@
 import axios from 'axios';
 import qs from 'qs';
 
-axios.defaults.withCredentials = true;
+//axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded"
+//axios.defaults.timeout = 100000
+//axios.defaults.withCredentials = true
 
 let http={
     post:"",
     get:"",
-    grobal:"http://localhost:3000/"
+    grobal:"http://localhost:3000/hq/"
 }
 
 http.post = function (api,data) {

@@ -21,6 +21,7 @@ import Customer from './context/btn5/customer';
 import Transport from './context/btn5/transport';
 import Business from './context/btn5/business';
 import Cockpit from './context/btn5/cockpit';
+import Entry from './context/btn6/Entry';
 import { Layout } from 'antd';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Blank from './context/blank';
@@ -155,6 +156,8 @@ class Home extends Component {
                                 <Route path="/Home/btn5/2/Transport" component={Transport} />
                                 <Route path="/Home/btn5/3/Business" component={Business} />
                                 <Route path="/Home/btn5/4/Cockpit" component={Cockpit} />
+                                {/*btn6 - 知识*/}
+                                <Route path="/Home/btn6/1/Entry" component={Entry} />
                                 <Route render={() => <Redirect to="/Home" />} />
                             </Switch>
                         </Content>
@@ -184,6 +187,8 @@ class Home extends Component {
                             <Route path="/Home/btn5/2/Transport" component={Blank} />
                             <Route path="/Home/btn5/3/Business" component={Blank} />
                             <Route path="/Home/btn5/4/Cockpit" component={Blank} />
+                            {/*btn6 - 知识*/}
+                            <Route path="/Home/btn6/1/Entry" component={Blank} />
                             <Route render={() => <Redirect to="/Home" />} />
                         </Switch>
                     </Footer>

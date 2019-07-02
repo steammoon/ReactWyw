@@ -27,7 +27,7 @@ function handleChange(value){
 
 //提交任务data
 async function submitdata(data){
-    const res = await http.post(url.INSERT_DATA,data);
+    await http.post(url.INSERT_DATA,data);
 }
 
 class TaskPublish extends React.Component {
@@ -203,7 +203,7 @@ class TaskPublish extends React.Component {
                                     </td>
                                     <td><div className="inptitle">类型</div></td>
                                     <td>
-                                        <Select ref="type" width="100%" style={{ width: "100%" }} defaultValue="1" style={{ width: 120 }}>
+                                        <Select ref="type" width="100%" style={{ width: "100%" }} defaultValue="1" >
                                             <Option value="1">普通任务</Option>
                                             <Option value="2">紧急任务</Option>
                                             <Option value="3">长期任务</Option>

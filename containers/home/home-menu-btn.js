@@ -10,8 +10,8 @@ class HomeMenuBtn extends Component {
             btncode: null,
             locked: false,
             btnstyle: {
-                color: 'white',
-                backgroundColor: 'black'
+                color: 'black',
+                backgroundColor: 'white'
             }
         }
     }
@@ -30,8 +30,8 @@ class HomeMenuBtn extends Component {
                 btncode: event.currentTarget.id,
                 locked: true,
                 btnstyle: {
-                    color: 'rgba(18, 150, 219, 1)',
-                    backgroundColor: 'rgba(35, 35, 35,1)'
+                    color: 'rgba(18, 150, 219, 1)'
+                    //,backgroundColor: 'rgba(35, 35, 35,1)'
                 }
             });
         }
@@ -47,8 +47,8 @@ class HomeMenuBtn extends Component {
                 btncode: event.currentTarget.id,
                 locked: false,
                 btnstyle: {
-                    color: 'white',
-                    backgroundColor: 'black'
+                    color: 'black'
+                    //,backgroundColor: 'black'
                 }
             });
         }
@@ -56,7 +56,7 @@ class HomeMenuBtn extends Component {
     }
 
     btnenter(event) {
-        if (!this.props.locked) {
+        /* if (!this.props.locked) {
             let data = {};
             data = {
                 openlist: true,
@@ -67,14 +67,14 @@ class HomeMenuBtn extends Component {
         }
         this.setState({
             btnstyle: {
-                color: 'rgba(18, 150, 219, 1)',
-                backgroundColor: 'rgba(35, 35, 35,1)'
+                color: 'rgba(18, 150, 219, 1)'
+                //,backgroundColor: 'rgba(35, 35, 35,1)'
             }
-        });
+        }); */
     }
 
     btnleave(event) {
-        let data = {};
+        /* let data = {};
         if (!this.state.locked) {
             if (!this.props.locked) {
                 data = {
@@ -86,11 +86,11 @@ class HomeMenuBtn extends Component {
             }
             this.setState({
                 btnstyle: {
-                    color: 'white',
-                    backgroundColor: 'black'
+                    color: 'black'
+                    //,backgroundColor: 'black'
                 }
             });
-        }
+        } */
     }
 
     componentWillReceiveProps(nextProps) {
@@ -101,8 +101,8 @@ class HomeMenuBtn extends Component {
                     btncode: event.currentTarget.id,
                     locked: false,
                     btnstyle: {
-                        color: 'white',
-                        backgroundColor: 'black'
+                        color: 'black'
+                        //,backgroundColor: 'black'
                     }
                 });
             }

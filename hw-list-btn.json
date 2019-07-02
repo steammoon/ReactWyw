@@ -19,6 +19,10 @@
         {
             "code": "btn5",
             "value": "数据"
+        },
+        {
+            "code": "btn6",
+            "value": "知识"
         }
     ],
     "menumapnull": [
@@ -44,40 +48,30 @@
             "code": "btn1",
             "msg": [
                 {
-                    "uid": "",
-                    "link": "",
-                    "value": ""
-                },
-                {
                     "uid": "btn1/1",
                     "link": "TrainUpload",
-                    "value": "定制"
+                    "value": "定制培训"
                 },
                 {
                     "uid": "btn1/2",
                     "link": "TrainContext",
-                    "value": "学习"
+                    "value": "开始学习"
                 },
                 {
                     "uid": "btn1/3",
                     "link": "TrainExam",
-                    "value": "考核"
+                    "value": "培训结果考核"
                 },
                 {
                     "uid": "btn1/4",
                     "link": "TrainHistory",
-                    "value": "历史"
+                    "value": "我的培训历史"
                 }
             ]
         },
         {
             "code": "btn2",
             "msg": [
-                {
-                    "uid": "",
-                    "link": "",
-                    "value": ""
-                },
                 {
                     "uid": "btn2/1",
                     "link": "TaskPublish",
@@ -90,8 +84,18 @@
                 },
                 {
                     "uid": "btn2/3",
+                    "link": "MyTask",
+                    "value": "我发布的任务"
+                },
+                {
+                    "uid": "btn2/4",
+                    "link": "MyTask",
+                    "value": "我领取的任务"
+                },
+                {
+                    "uid": "btn2/5",
                     "link": "TaskSettle",
-                    "value": "结算"
+                    "value": "结算任务"
                 }
             ]
         },
@@ -99,30 +103,20 @@
             "code": "btn3",
             "msg": [
                 {
-                    "uid": "",
-                    "link": "",
-                    "value": ""
-                },
-                {
                     "uid": "btn3/1",
                     "link": "AppClass",
-                    "value": "分类"
+                    "value": "我的应用"
                 },
                 {
                     "uid": "btn3/2",
                     "link": "AppRecord",
-                    "value": "使用记录"
+                    "value": "应用历史"
                 }
             ]
         },
         {
             "code": "btn4",
             "msg": [
-                {
-                    "uid": "",
-                    "link": "",
-                    "value": ""
-                },
                 {
                     "uid": "btn4/1",
                     "link": "Market",
@@ -149,11 +143,6 @@
             "code": "btn5",
             "msg": [
                 {
-                    "uid": "",
-                    "link": "",
-                    "value": ""
-                },
-                {
                     "uid": "btn5/1",
                     "link": "Customer",
                     "value": "客户图谱"
@@ -172,6 +161,21 @@
                     "uid": "btn5/4",
                     "link": "Cockpit",
                     "value": "决策驾驶舱"
+                }
+            ]
+        },
+        {
+            "code": "btn6",
+            "msg": [
+                {
+                    "uid": "btn6/1",
+                    "link": "Entry",
+                    "value": "词条"
+                },
+                {
+                    "uid": "btn6/2",
+                    "link": "KnowBase",
+                    "value": "知识库"
                 }
             ]
         }
@@ -196,6 +200,10 @@
         {
             "code": "btn5",
             "link": "Customer"
+        },
+        {
+            "code": "btn6",
+            "link": "Entry"
         }
     ],
     "confmap": [
@@ -218,6 +226,109 @@
             "code": "cof4",
             "value": "注销",
             "link": ""
+        }
+    ],
+    "defaultlist": [
+        {
+            "title": "正文",
+            "key": "0",
+            "content": "",
+            "chird": [
+                {
+                    "title": "基本描述",
+                    "key": "0-0",
+                    "content": "",
+                    "chird": [
+                        {
+                            "title": "物理性质",
+                            "key": "0-0-0",
+                            "content": "",
+                            "chird": []
+                        },
+                        {
+                            "title": "分子结构",
+                            "key": "0-0-1",
+                            "content": "",
+                            "chird": []
+                        }
+                    ]
+                },
+                {
+                    "title": "生产方法",
+                    "key": "0-1",
+                    "content": "",
+                    "chird": [
+                        {
+                            "title": "乙苯催化脱氢法",
+                            "key": "0-1-0",
+                            "content": "",
+                            "chird": []
+                        },
+                        {
+                            "title": "乙苯共氧化法",
+                            "key": "0-1-1",
+                            "content": "",
+                            "chird": []
+                        },
+                        {
+                            "title": "几种生产工艺的优劣比较",
+                            "key": "0-1-2",
+                            "content": "",
+                            "chird": []
+                        }
+                    ]
+                },
+                {
+                    "title": "应急处理",
+                    "key": "0-2",
+                    "content": "",
+                    "chird": [
+                        {
+                            "title": "急救措施",
+                            "key": "0-2-0",
+                            "content": "",
+                            "chird": [
+                                {
+                                    "title": "皮肤接触",
+                                    "key": "0-2-0-0",
+                                    "content": "",
+                                    "chird": []
+                                },
+                                {
+                                    "title": "眼睛接触",
+                                    "key": "0-2-0-1",
+                                    "content": "",
+                                    "chird": []
+                                },
+                                {
+                                    "title": "吸入",
+                                    "key": "0-2-0-2",
+                                    "content": "",
+                                    "chird": []
+                                },
+                                {
+                                    "title": "食入",
+                                    "key": "0-2-0-3",
+                                    "content": "",
+                                    "chird": []
+                                }
+                            ]
+                        },
+                        {
+                            "title": "消防措施",
+                            "key": "0-2-1",
+                            "content": "",
+                            "chird": []
+                        },
+                        {
+                            "title": "泄露应急处理",
+                            "key": "0-2-2",
+                            "content": "",
+                            "chird": []
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

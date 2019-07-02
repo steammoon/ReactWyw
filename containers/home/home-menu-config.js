@@ -42,7 +42,8 @@ class HomeMenuConf extends Component {
                     <img
                         className="ico"
                         src={headimg}
-                        alt="head_logo"></img> {this.props.name}
+                        alt="head_logo"></img> 
+                        <p className="loginname">{this.props.name}</p>
                     <span
                         className="caret"></span>
                 </button>

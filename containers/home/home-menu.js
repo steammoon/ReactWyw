@@ -30,7 +30,7 @@ export default class Homemenu extends Component {
     render() {
         return (
             <div className="container-fluid" id="Homemenu">
-                <Link to="/Home"><div id="img-logo" alt="nthq"></div></Link>
+                <Link style={{zIndex:"99"}} to="/Home"><div id="img-logo" alt="nthq"></div></Link>
                 <div className="row">
                     <div className="container">
                         <div className="row">
