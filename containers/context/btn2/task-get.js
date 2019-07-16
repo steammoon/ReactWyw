@@ -101,7 +101,7 @@ class TaskGet extends React.Component {
                     openmore={this.state.openmore}
                     curitem={this.state.curitem}
                     callbackstate={this.callbackstate} />
-                <div className="taskframe">
+                <div className="SearchEntry">
                     <List
                         grid={{
                             gutter: 16,
@@ -120,7 +120,7 @@ class TaskGet extends React.Component {
                                         title={item.title}
                                         headStyle={{ color: item.color, fontWeight: "500", fontFamily: "微软雅黑" }}
                                         extra={<a onClick={(event) => { this.clickmore(event, item) }} href="#">More</a>}
-                                        style={{ color: item.color, borderRadius: "7px", backgroundColor: "rgb(255,255,255)", boxShadow: "0 5px 10px rgb(200,200,200)" }}>
+                                        style={{ color: item.color,  borderRadius: "7px", backgroundColor: "rgb(255,255,255)", boxShadow: "0 5px 10px rgb(200,200,200)" }}>
                                         {item.tag.map((value, i) =>
                                             <Tag key={i} color={value.tagcolor}>{value.tagname}</Tag>
                                         )}

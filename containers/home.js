@@ -24,7 +24,9 @@ import Cockpit from './context/btn5/cockpit';
 import Entry from './context/btn6/Entry';
 import { Layout } from 'antd';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import Notify from '../containers/common/notification';
 import Blank from './context/blank';
+import FlyBird from './context/extra/game/flybird';
 import '../css/home.css'
 
 const { Header, Footer, Content } = Layout;
@@ -107,6 +109,7 @@ class Home extends Component {
             this.setState({
                 name : this.props.location.state.name
             })
+            Notify.openNotification("登陆成功","欢迎回来,"+this.props.location.state.name);
         }
     }
 
@@ -158,6 +161,8 @@ class Home extends Component {
                                 <Route path="/Home/btn5/4/Cockpit" component={Cockpit} />
                                 {/*btn6 - 知识*/}
                                 <Route path="/Home/btn6/1/Entry" component={Entry} />
+                                {/*extra */}
+                                <Route path="/Home/extra/flybird" component={FlyBird} />
                                 <Route render={() => <Redirect to="/Home" />} />
                             </Switch>
                         </Content>
@@ -189,6 +194,8 @@ class Home extends Component {
                             <Route path="/Home/btn5/4/Cockpit" component={Blank} />
                             {/*btn6 - 知识*/}
                             <Route path="/Home/btn6/1/Entry" component={Blank} />
+                            {/*extra */}
+                            <Route path="/Home/extra/flybird" component={Blank} />
                             <Route render={() => <Redirect to="/Home" />} />
                         </Switch>
                     </Footer>

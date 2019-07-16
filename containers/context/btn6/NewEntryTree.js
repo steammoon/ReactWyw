@@ -236,7 +236,7 @@ class NewEntryTree extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         //demotree替换
-        if (nextProps.showdemo) {
+        if (nextProps.showdemo && nextProps.showdemo !== this.props.showdemo) {
             this.setState({
                 treelist: ListBtnJson.defaultlist
             })
@@ -250,7 +250,6 @@ class NewEntryTree extends React.Component {
                 list: this.state.treelist
             };
             this.props.checkEntry1(data);
-            console.log("1111");
         }
     }
 
@@ -327,7 +326,6 @@ class NewEntryTree extends React.Component {
                         ref="modalarea"
                         value={this.state.textreainner}
                         onChange={this.textareachange}
-                        defaultValue={this.state.nowcontent}
                         placeholder="丰富你的词条内容...."
                         autosize={{ minRows: 5, maxRows: 13 }} />
                 </Modal>

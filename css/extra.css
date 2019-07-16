@@ -1,0 +1,47 @@
+@media screen and (max-width: 2800px){
+    .game-body {
+       height: 900px;
+    }
+    .fly-background{
+    height: 900px;
+    }
+    .gamebtn{
+        top: 300px;
+    }
+  }
+  
+  @media screen and (max-width: 1800px){
+    .game-body {
+        height: 560px;
+    }
+    .fly-background{
+        height: 570px;
+    }
+    .gamebtn{
+        top: 200px;
+    }
+  }
+.game-body{
+    width: 100%;
+    z-index: 13;
+    background-color: white;
+    position: absolute;
+}
+
+.gamebtn{
+    margin: 0 auto;
+    width: 200px;
+    height: 100px;
+    position: relative;
+    z-index: 14;
+}
+
+.fly-background{
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    background-image: url("../img/demo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+	background-size: 100% 100%;
+}

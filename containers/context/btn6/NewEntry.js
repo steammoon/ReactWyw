@@ -1,6 +1,6 @@
 import React from 'react';
 import http from '../../../http';
-import { Input, Tag, Select, Tooltip } from 'antd';
+import { Input, Tag, Select, Tooltip,Switch } from 'antd';
 import NewEntryTree from '../btn6/NewEntryTree';
 
 const url = {
@@ -12,7 +12,7 @@ const { Option } = Select;
 var tag_list = "";
 //获取taglist
 function handleChange(value) {
-    console.log(`selected ${value}`);
+    //console.log(`selected ${value}`);
     tag_list = `${value}`;
 }
 
@@ -22,7 +22,7 @@ class NewEntry extends React.Component {
         this.state = {
             data: [],
             showdemo: false,
-            getdata1 : false
+            getdata1: false
         }
     }
 
@@ -51,18 +51,18 @@ class NewEntry extends React.Component {
     //显示demo tree
     showtreedemo = () => {
         this.setState({
-            showdemo : true
+            showdemo: true
         })
     }
-    
+
     //触发list回调
-    checkEntry1 = (data) =>{
+    checkEntry1 = (data) => {
         var data1 = {
-            list : data.list,
-            name : this.refs.entry_name.state.value,
-            othername : this.refs.entry_other_name.state.value,
-            engname :  this.refs.entry_eng_name.state.value,
-            taglist : tag_list,
+            list: data.list,
+            name: this.refs.entry_name.state.value,
+            othername: this.refs.entry_other_name.state.value,
+            engname: this.refs.entry_eng_name.state.value,
+            taglist: tag_list,
         }
         this.props.checkEntry(data1);
     }
@@ -70,9 +70,8 @@ class NewEntry extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.getdata !== this.state.getdata1) {
             this.setState({
-                getdata1 : this.state.getdata1?false:true
+                getdata1: this.state.getdata1 ? false : true
             })
-            console.log("2222");
         }
     }
 
@@ -83,10 +82,16 @@ class NewEntry extends React.Component {
                 <table>
                     <tbody>
                         <tr>
-                            <td width="180px"><div style={{ left: "0px" }} className="inptitle1">词条名</div></td>
-                            <td width="460px"><Input ref="entry_name" placeholder="请输入词条名" /></td>
-                            <td width="220px"><div className="inptitle">标签</div></td>
-                            <td width="240px">
+                            <td width="160px"><div style={{ left: "0px" }} className="inptitle1">词条名</div></td>
+                            <td width="220px"><Input ref="entry_name" placeholder="请输入词条名" /></td>
+                            <td width="160px"><div className="inptitle">别名</div></td>
+                            <td width="200px"><Input ref="entry_other_name" placeholder="请输入别名" /></td>
+                            <td width="160px"><div className="inptitle">英文名</div></td>
+                            <td width="200px"><Input ref="entry_eng_name" placeholder="英文名" /></td>
+                        </tr>
+                        <tr>
+                            <td width="160px"><div className="inptitle1">标签</div></td>
+                            <td width="220px">
                                 <Select
                                     ref="entry_taglist"
                                     mode="tags"
@@ -97,15 +102,14 @@ class NewEntry extends React.Component {
                                     {options}
                                 </Select>
                             </td>
+                            <td width="160px"><div className="inptitle">开启隐私</div></td>
+                            <td width="200px"><Tooltip placement="top" title="允许外部应用关联词条" arrowPointAtCenter><Switch style={{marginLeft:"80px"}} /></Tooltip></td>
+                            <td width="160px"><div className="inptitle">预留字段</div></td>
+                            <td width="200px"><Input placeholder="预留字段" /></td>
+
                         </tr>
                         <tr>
-                            <td width="180px"><div className="inptitle1">别名</div></td>
-                            <td width="460px"><Input ref="entry_other_name" placeholder="请输入别名" /></td>
-                            <td width="220px"><div className="inptitle">英文名</div></td>
-                            <td width="240px"><Input ref="entry_eng_name" placeholder="英文名" /></td>
-                        </tr>
-                        <tr>
-                            <td width="1100px" colSpan="4">
+                            <td width="1100px" colSpan="6">
                                 <div style={{ width: '100%', display: 'inline-block' }} className="inptitle">词条目录(至多支持4级目录):
                                 <Tooltip placement="topLeft" title="创建一个目录示例" arrowPointAtCenter>
                                         <div onClick={this.showtreedemo} className="tree-demo" >目录示例</div>

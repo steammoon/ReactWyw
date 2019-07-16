@@ -5,6 +5,7 @@ class HomeMenuConfBtn extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            code: this.props.code,
             btnstyle: {
                 color: 'black',
                 width: '120px'
@@ -19,9 +20,15 @@ class HomeMenuConfBtn extends Component {
                 color: (this.state.btnstyle.color === "black") ? "rgba(18, 150, 219, 1)" : "black"
             }
         })
-        if(this.props.code === "cof4"){ 
+        if (this.props.code === "cof4") {
             event.preventDefault();
-            window.location.href="/";
+            window.location.href = "/";
+        }
+        else {
+            var data = {
+                type: this.state.code
+            }
+            this.props.callbackconf(data);
         }
     }
 
@@ -46,17 +53,12 @@ class HomeMenuConfBtn extends Component {
     render() {
         return (
             <li
-                key={this.props.i} 
-                value={this.props.code} 
+                key={this.props.i}
+                value={this.props.code}
                 onMouseEnter={(event) => { this.btnenter(event) }}
                 onMouseLeave={(event) => { this.btnleave(event) }}
                 onClick={(event) => { this.confbtn1(event) }} >
-                <Link 
-                    style={this.state.btnstyle}
-                    key={this.props.i} 
-                    to={"/" + this.props.link}>
-                    {this.props.innervalue}
-                </Link>
+                <a style={this.state.btnstyle}> {this.props.innervalue}</a>
             </li>
         );
     }
