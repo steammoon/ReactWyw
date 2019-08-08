@@ -121,22 +121,22 @@
                 {
                     "uid": "btn4/1",
                     "link": "Market",
-                    "value": "全部"
+                    "value": "价格表"
                 },
                 {
                     "uid": "btn4/2",
                     "link": "MarketUnPurchased",
-                    "value": "未购买"
+                    "value": "成本预估"
                 },
                 {
                     "uid": "btn4/3",
                     "link": "MarketPurchased",
-                    "value": "已购买"
+                    "value": "每日头寸"
                 },
                 {
                     "uid": "btn4/4",
                     "link": "MarketRecord",
-                    "value": "购买记录"
+                    "value": "价格分析"
                 }
             ]
         },

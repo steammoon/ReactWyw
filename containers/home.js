@@ -27,6 +27,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Notify from '../containers/common/notification';
 import Blank from './context/blank';
 import FlyBird from './context/extra/game/flybird';
+import listener from './common/KeyListener';
 import '../css/home.css'
 
 const { Header, Footer, Content } = Layout;
@@ -35,12 +36,15 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name : "huangw",
+            name: "huangw",
             openlist: false,
             btncode: null,
-            uid:null,
+            uid: null,
             locked: false,
-            autolocked: false
+            autolocked: false,
+            keycode_now: "38",
+            keycode_pre: "",
+            IFlistener : false
         }
     }
 
@@ -52,17 +56,17 @@ class Home extends Component {
         });
     };
 
-    componentDidMount(nextProps){
+    componentDidMount(nextProps) {
         let routepath = this.props.location.pathname;
         let pathlen = routepath.length;
-        let routepath1 = routepath.substring(6,10);
-        let routepath2 = routepath.substring(6,12);
+        let routepath1 = routepath.substring(6, 10);
+        let routepath2 = routepath.substring(6, 12);
         let param1 = false;
         let param2 = null;
         let param3 = null;
         let param4 = false;
         let param5 = false;
-        if(pathlen > 13){
+        if (pathlen > 13) {
             param1 = true;
             param2 = routepath1;
             param3 = routepath2;
@@ -72,23 +76,40 @@ class Home extends Component {
         this.setState({
             openlist: param1,
             btncode: param2,
-            uid : param3,
+            uid: param3,
             locked: param4,
             autolocked: param5
         })
+        window.addEventListener("keydown", this.onKeyDown);
     }
 
-    componentWillReceiveProps(nextProps){
+    //输入指令 上上下下左左右右
+    onKeyDown = (e) => {
+        let res = listener.homelistener(this.props.location.pathname,e.keyCode,this.state.keycode_now,this.state.keycode_pre);
+        if(res.type === "game"){
+            this.setState({
+                keycode_now: res.keycode_now,
+                keycode_pre: res.keycode_pre,
+                IFlistener: res.IFlistener
+            })
+            if(res.IFlistener === true){
+                window.removeEventListener("keydown", this.onKeyDown);
+                window.location.href = "/Home/extra/flybird";
+            }
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
         let routepath = nextProps.location.pathname;
         let pathlen = routepath.length;
-        let routepath1 = routepath.substring(6,10);
-        let routepath2 = routepath.substring(6,12);
+        let routepath1 = routepath.substring(6, 10);
+        let routepath2 = routepath.substring(6, 12);
         let param1 = false;
         let param2 = null;
         let param3 = null;
         let param4 = false;
         let param5 = false;
-        if(pathlen > 13){
+        if (pathlen > 13) {
             param1 = true;
             param2 = routepath1;
             param3 = routepath2;
@@ -98,23 +119,23 @@ class Home extends Component {
         this.setState({
             openlist: param1,
             btncode: param2,
-            uid : param3,
+            uid: param3,
             locked: param4,
             autolocked: param5
         })
     }
 
-    componentWillMount(){
-        if(typeof this.props.location.state !== "undefined"){
+    componentWillMount() {
+        if (typeof this.props.location.state !== "undefined") {
             this.setState({
-                name : this.props.location.state.name
+                name: this.props.location.state.name
             })
-            Notify.openNotification("登陆成功","欢迎回来,"+this.props.location.state.name);
+            Notify.openNotification("登陆成功", "欢迎回来," + this.props.location.state.name);
         }
     }
 
     render() {
-        if(typeof this.state.name === "undefined" || this.state.name === null){
+        if (typeof this.state.name === "undefined" || this.state.name === null) {
             return <Redirect push to="/" />;
         }
         return (
@@ -122,8 +143,8 @@ class Home extends Component {
                 <Layout>
                     <Header>
                         <HomeMenu
-                            callbackMenu={this.menulistOpen} 
-                            name={this.state.name} 
+                            callbackMenu={this.menulistOpen}
+                            name={this.state.name}
                         />
                     </Header>
                     <Layout>
@@ -138,7 +159,7 @@ class Home extends Component {
                             <Switch>
                                 <Route exact path="/Home" component={Carousel} />
                                 {/*btn1 - 培训*/}
-                                <Route path="/Home/btn1/1/TrainUpload" component={TrainUpload} /> 
+                                <Route path="/Home/btn1/1/TrainUpload" component={TrainUpload} />
                                 <Route path="/Home/btn1/2/TrainContext" component={TrainContext} />
                                 <Route path="/Home/btn1/3/TrainExam" component={TrainExam} />
                                 <Route path="/Home/btn1/4/TrainHistory" component={TrainHistory} />

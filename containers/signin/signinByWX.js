@@ -1,4 +1,5 @@
 import React from 'react';
+import wx from '../../libs/wx/wx';
 
 class SigninByWX extends React.Component {
     constructor(props) {
@@ -7,8 +8,8 @@ class SigninByWX extends React.Component {
         }
     }
 
-    componentWillMount() {
-       
+    componentDidMount() {
+        wx.WwLogin();
     }
 
 

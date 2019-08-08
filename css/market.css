@@ -1,0 +1,63 @@
+@media screen and (max-width: 2800px){
+    .condition-bottom-tab {
+        width: 1880px;
+    }
+    .functionTable{
+        width: 1700px;
+    }
+  }
+  
+  @media screen and (max-width: 1800px){
+    .condition-bottom-tab {
+        width: 1320px;
+    }
+    .functionTable{
+        width: 1140px;
+    }
+  }
+
+.functionBar{
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    height: 50px;
+}
+
+.condition-bottom-body{
+    width: 1320px;
+    height: 270px;
+    position: absolute;
+    top: 70px;
+}
+
+.condition-bottom-body>table{
+    margin-left: 50px;
+    margin-right: 50px;
+    border-collapse:collapse;
+}
+
+.condition-bottom-body>table>tbody>tr>td{
+    height: 60px;
+    padding-right: 50px;
+    width: 25%;
+}
+
+.condition-bottom-tab{
+    position: absolute;
+    bottom: 10px;
+    height: 30px;
+}
+
+.functionTable{
+    top: 80px;
+    left: 50px;
+    position: absolute;
+    height: 450px;
+    text-align: center;
+}
+
+.editable-row .ant-form-explain {
+    position: absolute;
+    font-size: 12px;
+    margin-top: -4px;
+  }

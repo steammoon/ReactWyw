@@ -11,15 +11,15 @@ const Root = () => (
          <Route
             path="/"
             render={props => (
-               <App>
-                  <Switch>
-                     <Route path="/" exact component={Signin} />
-                     <Route path="/Home" component={Home} />
-                     <Route path="/signin" component={Signin} />
-                      {/*路由不正确时，默认跳回home页面*/}
-                     <Route render={() => <Redirect to="/" />} />
-                  </Switch>
-               </App>
+                  <App>
+                     <Switch>
+                        <Route path="/" exact component={Signin} />
+                        <Route path="/Home" component={Home} />
+                        <Route path="/signin" component={Signin} />
+                        {/*路由不正确时，默认跳回home页面*/}
+                        <Route render={() => <Redirect to="/" />} />
+                     </Switch>
+                  </App>
             )}
          />
       </Switch>

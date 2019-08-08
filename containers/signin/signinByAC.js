@@ -2,10 +2,11 @@ import React from 'react';
 import { Input, Button } from 'antd';
 import http from '../../http';
 import { Redirect } from 'react-router-dom';
+import wx from '../../libs/wx/wx';
 //import $ from 'jquery';
 
 const url = {
-    "GET_DATA": http.grobal +'HWlogin/psw'
+    "GET_DATA": http.grobal +'login/psw'
 }
 
 class SigninByAC extends React.Component {
@@ -22,6 +23,10 @@ class SigninByAC extends React.Component {
                 width: '100%',
             }
         }
+    }
+
+    componentWillMount(){
+        wx.WwLogin();
     }
 
 
